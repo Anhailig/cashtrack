@@ -9,8 +9,10 @@ import Chart from '../components/Chart';
 import ExportButton from '../components/ExportButton';
 import { useStore } from '../lib/store';
 import {useHasMounted} from "@/lib/useHasMounted";
+import { redirect } from 'next/navigation';
 
 const Home = () => {
+    redirect('/landing');
     const hasMounted = useHasMounted();
     const { transactions, addTransaction } = useStore();
 
