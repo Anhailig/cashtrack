@@ -1,4 +1,5 @@
 import {create} from 'zustand';
+import { saveToStorage, loadFromStorage } from './storage';
 
 interface Transaction {
     amount: number;
@@ -12,10 +13,14 @@ interface Store {
     addTransaction: (transaction: Transaction) => void;
 }
 
+const stored = loadFromStorage('transactions');
+
 export const useStore = create<Store>((set: any) => ({
-    transactions: [],
+    transactions: stored || [],
     addTransaction: (transaction: Transaction) =>
-        set((state: any) => ({
-            transactions: [...state.transactions, transaction],
-        })),
+        set((state: any) => {
+            const updated = [...state.transactions, transaction];
+            saveToStorage('transactions', updated);
+            return { transactions: updated };
+        }),
 }));
