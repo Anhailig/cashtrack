@@ -6,6 +6,7 @@ import TransactionForm from '../components/TransactionForm';
 import TransactionList from '../components/TransactionList';
 import Summary from '../components/Summary';
 import Chart from '../components/Chart';
+import ExportButton from '../components/ExportButton';
 import { useStore } from '../lib/store';
 import {useHasMounted} from "@/lib/useHasMounted";
 
@@ -23,6 +24,7 @@ const Home = () => {
           <TransactionList transactions={transactions} />
             <Summary transactions={transactions} />
             <Chart transactions={transactions} />
+            <ExportButton transactions={transactions} />
         </main>
       </div>
   );
