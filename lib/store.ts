@@ -15,10 +15,13 @@ interface Store {
 
 const stored = loadFromStorage('transactions');
 
-export const useStore = create<Store>((set: any) => ({
-    transactions: stored || [],
-    addTransaction: (transaction: Transaction) =>
-        set((state: any) => {
+export const useStore = create<Store>((set) => ({
+    transactions: (stored || []).map((t: any) => ({
+        ...t,
+        date: new Date(t.date),
+    })),
+    addTransaction: (transaction) =>
+        set((state) => {
             const updated = [...state.transactions, transaction];
             saveToStorage('transactions', updated);
             return { transactions: updated };
