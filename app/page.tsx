@@ -12,7 +12,7 @@ import {useHasMounted} from "@/lib/useHasMounted";
 import { redirect } from 'next/navigation';
 
 const Home = () => {
-    redirect('/landing');
+    // redirect('/landing');
     const hasMounted = useHasMounted();
     const { transactions, addTransaction } = useStore();
 
@@ -27,6 +27,7 @@ const Home = () => {
             <Summary transactions={transactions} />
             <Chart transactions={transactions} />
             <ExportButton transactions={transactions} />
+            <div className="text-red-500 text-xl font-bold">Tailwind работает?</div>
         </main>
       </div>
   );

@@ -21,7 +21,7 @@ const TransactionForm = ({ addTransaction }: any) => {
                     value={amount}
                     onChange={(e) => setAmount(Number(e.target.value))}
                     required
-                    className="w-full p-2 border rounded"
+                    className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
                 />
             </div>
             <div>
@@ -31,7 +31,7 @@ const TransactionForm = ({ addTransaction }: any) => {
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
                     required
-                    className="w-full p-2 border rounded"
+                    className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
                 />
             </div>
             <div>
@@ -45,7 +45,7 @@ const TransactionForm = ({ addTransaction }: any) => {
                     <option value="expense">Расход</option>
                 </select>
             </div>
-            <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded">
+            <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
                 Добавить транзакцию
             </button>
         </form>
